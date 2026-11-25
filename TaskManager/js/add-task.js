@@ -12,7 +12,7 @@
       form.reset();
       titleInput.focus();
     } else {
-      titleInput.setCustomValidity("Введите название задачи.");
+      titleInput.setCustomValidity("Введите задачу.");
       titleInput.reportValidity();
       titleInput.addEventListener("input", () => titleInput.setCustomValidity(""), { once: true });
     }
