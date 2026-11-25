@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskManager — управление задачами</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">✓</span><span>TaskManager</span></div>
+    <p>Планируйте дела и следите за прогрессом</p>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">ЛИЧНАЯ ПАНЕЛЬ</p>
+        <h1>Мои задачи</h1>
+        <p class="muted">Все важные дела — в одном месте.</p>
+      </div>
+      <div class="date-chip" id="todayDate"></div>
+    </section>
+
+    <section class="stats" aria-label="Статистика задач">
+      <article class="stat-card"><span>Всего задач</span><strong id="totalCount">0</strong></article>
+      <article class="stat-card"><span>В работе</span><strong id="activeCount">0</strong></article>
+      <article class="stat-card"><span>Выполнено</span><strong id="doneCount">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>Добавить задачу</h2><p class="muted">Заполните название и описание</p></div>
+      </div>
+      <form id="taskForm" class="task-form">
+        <label>Название задачи<input id="taskTitle" type="text" maxlength="80" placeholder="Например, подготовить отчёт" required></label>
+        <label>Описание<textarea id="taskDescription" rows="3" maxlength="300" placeholder="Дополнительная информация (необязательно)"></textarea></label>
+        <button class="button button-primary" type="submit">＋ Добавить задачу</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading list-heading">
+        <div><h2>Список задач</h2><p class="muted">Управляйте своими текущими делами</p></div>
+        <div class="filters">
+          <label class="search-label" for="searchInput">Поиск</label>
+          <input id="searchInput" type="search" placeholder="Найти задачу...">
+          <select id="statusFilter" aria-label="Фильтр по статусу">
+            <option value="all">Все задачи</option>
+            <option value="active">В работе</option>
+            <option value="done">Выполненные</option>
+          </select>
+        </div>
+      </div>
+      <div id="taskList" class="task-list" aria-live="polite">
+        <div class="empty-state">Пока задач нет. Добавьте первую задачу выше.</div>
+      </div>
+      <p id="visibleCount" class="visible-count">Показано задач: 0</p>
+    </section>
+  </main>
+
+  <footer>TaskManager · Учебный командный проект</footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/add-task.js"></script>
+  <script src="js/edit-delete.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>
